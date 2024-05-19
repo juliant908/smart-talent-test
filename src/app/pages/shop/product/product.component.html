@@ -12,9 +12,9 @@
         <p class="out-of-stock">Out of stock</p>
       }
       @if(user?.admin){
-      <button [disabled]="item.quantity < 1" (click)="editItem(item)">Edit</button>
+      <button (click)="editItem(item)">Edit</button>
       } @else {
-      <button [disabled]="disableAddButton(item)" (click)="addToCart(item)">Add to Cart</button>
+      <button [disabled]="item.quantity < 1" (click)="addToCart(item)">Add to Cart</button>
       }
     </div>
   </div>

@@ -29,8 +29,4 @@ export class ProductComponent {
     item.quantity--;
     this.cartService.addToCart(item);
   }
-
-  disableAddButton(item: Product) {
-    return item.quantity === 0;
-  }
 }
