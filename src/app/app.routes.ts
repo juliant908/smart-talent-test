@@ -1,8 +1,5 @@
-import { inject } from '@angular/core';
-import { Router, Routes } from '@angular/router';
-import { LoginService } from './services/login.service';
-import { ShopComponent } from './pages/shop/shop.component';
-import { authGuard, loginGuard } from './shared/auth.guard';
+import { Routes } from '@angular/router';
+import { authGuard } from './shared/auth.guard';
 
 
 export const routes: Routes = [
@@ -13,8 +10,7 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent),
-    canActivate: [loginGuard]
+    loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent)
   },
   {
     path: 'shop',
@@ -32,7 +28,8 @@ export const routes: Routes = [
   },
   {
     path: 'cart',
-    loadComponent: () => import('./pages/cart/cart.component').then(m => m.CartComponent)
+    loadComponent: () => import('./pages/cart/cart.component').then(m => m.CartComponent),
+    canActivate: [authGuard]
   },
   {
     path: 'orders',

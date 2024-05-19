@@ -19,9 +19,6 @@ export class CartComponent {
 
   ngOnInit(){
     this.cart = this.cartService.cart$;
-
-    // this.cart = EMPTY;
-    console.log(this.cart);
   }
 
   removeFromCart(itemId: number) {
@@ -30,10 +27,10 @@ export class CartComponent {
 
   checkout(){
     let cart;
-    this.cartService.cart$.subscribe(
-      data => cart = data,
-      err => console.log(err)
-    );
+    this.cartService.cart$.subscribe({
+      next: data => cart = data,
+      error: err => console.log(err)
+    });
     if(!cart) return
     this.cartService.checkout(cart);
   }

@@ -13,13 +13,3 @@ export const authGuard: CanActivateFn = () => {
   }
 }
 
-export const loginGuard: CanActivateFn = () => {
-  const loginService = inject(LoginService);
-  const user = loginService.currentUser$.value !== null ? true : false;
-  if(user) {
-    inject(Router).navigate(['/shop']);
-    return false;
-  } else {
-    return true;
-  }
-}
