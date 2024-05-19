@@ -1,0 +1,11 @@
+<h1>Smart shop</h1>
+
+<div class="shop">
+  @for (item of items; track item.id){
+    <app-product [item]="item"></app-product>
+  }
+</div>
+
+@if(user?.admin){
+<button class="add-btn" type="button" (click)="addItem()">Add item</button>
+}

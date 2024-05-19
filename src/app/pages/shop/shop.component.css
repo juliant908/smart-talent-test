@@ -1,0 +1,10 @@
+.shop {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.add-btn {
+  margin-top: 1rem;
+  width: 100%;
+}

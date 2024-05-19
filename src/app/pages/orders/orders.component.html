@@ -1,0 +1,16 @@
+<div>
+  <h1>Orders</h1>
+
+  @for(order of orders; track $index){
+  <div class="order-item">
+    <div class="order-item-info">
+      <h2>Order id: {{ order.id }}</h2>
+      <h3>Elements ordered:</h3>
+      @for(item of order.order; track item.id){
+        <p>Product: {{item.name}} - Quantity: {{item.quantity}}</p>
+      }
+      <p>Total: {{ order.total }}</p>
+    </div>
+  </div>
+  }
+</div>

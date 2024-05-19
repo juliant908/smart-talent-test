@@ -1,0 +1,12 @@
+.product {
+  background-color: rgba(33, 49, 69);
+  padding: 1rem;
+  border-radius: 5px;
+  button {
+    width: 100%;
+  }
+}
+
+.product-description {
+  text-wrap: pretty;
+}

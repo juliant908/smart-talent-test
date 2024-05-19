@@ -1,0 +1,13 @@
+:host {
+  display: grid;
+  place-items: center;
+}
+
+.order-item {
+  display: flex;
+  gap: 2rem;
+  margin-block: 2rem;
+  background-color: rgba(33, 49, 69);
+  padding: 1rem;
+  justify-content: end;
+}

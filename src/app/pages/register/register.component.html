@@ -1,0 +1,30 @@
+<div class="register-form">
+  <h1>Register</h1>
+    @if(loginService.emailExists){
+    <div class="error-register">
+      <p>Email already in use</p>
+    </div>
+    }
+  <form [formGroup]="registerForm">
+    <div>
+      <label for="name">Name</label>
+      <input formControlName="name" type="text" id="name" name="name" placeholder="John Doe"/>
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input [ngClass]="registerForm.get('email')?.invalid ? 'invalid-email' : ''" formControlName="email" type="email" id="email" name="email" placeholder="email@email.com"/>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input [ngClass]="registerForm.get('password')?.invalid ? 'invalid-email' : ''" formControlName="password" type="password" id="password" name="password" />
+      <div>
+        @if(registerForm.get('password')?.invalid){
+          <ul class="password-requirements">
+            <li>Password must be at least 6 characters long</li>
+          </ul>
+        }
+      </div>
+    </div>
+    <button (click)="registerUser()" type="submit">Register</button>
+  </form>
+</div>

@@ -1,0 +1,21 @@
+:host {
+  display: grid;
+  place-items: center;
+}
+
+.cart-item {
+  display: flex;
+  gap: 2rem;
+  margin-block: 2rem;
+  background-color: rgba(33, 49, 69);
+  padding: 1rem;
+  justify-content: end;
+}
+
+.remove-btn {
+  align-self: flex-end;
+}
+
+.checkout-btn > button {
+  width: 100%;
+}

@@ -1,0 +1,20 @@
+<div class="login-form">
+  <h1>Login</h1>
+  @if(!loginService.userExists){
+    <div class="error-login">
+      <p>Email or password incorrect, try again</p>
+    </div>
+  }
+  <form [formGroup]="loginForm">
+    <div>
+      <label for="email">Email</label>
+      <input [ngClass]="loginForm.get('email')?.invalid ? 'invalid-email' : ''" formControlName="email" type="email" id="email" name="email" placeholder="example@gmail.com" required>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input [ngClass]="loginForm.get('password')?.invalid ? 'invalid-password' : ''"  formControlName="password" type="password" id="password" name="password" required>
+    </div>
+    <button [disabled]="this.loginForm.invalid" (click)="login()" type="submit">Login</button>
+  </form>
+  <button class="register-btn" (click)="goToRegister()" type="button">Register</button>
+</div>

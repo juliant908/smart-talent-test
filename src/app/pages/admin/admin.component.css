@@ -1,0 +1,41 @@
+:host {
+  display: grid;
+  place-items: center;
+  margin-inline: auto;
+  --padding: 1rem;
+}
+
+h1 {
+  margin-top: 0
+}
+
+.edit-form {
+  background-color: rgba(33, 49, 69);
+  border-radius: 5px;
+  width: 80%;
+  padding: var(--padding);
+  grid-column: 1 / -1;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+
+  button,
+  input {
+    margin-inline: 0;
+    width: -webkit-fill-available;
+  }
+
+}
+
+.goBack {
+  margin-bottom: 1rem;
+  justify-self: self-start;
+  background: rgba(33, 49, 69);
+  padding: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}

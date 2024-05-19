@@ -1,0 +1,28 @@
+<div class="goBack" (click)="router.navigate(['/shop']);">
+  Go back
+</div>
+<div class="edit-form add-form">
+  <h1>{{editMode ? 'Edit' : 'Add'}} product</h1>
+  <form [formGroup]="addEditForm">
+    <div>
+      <label for="name">Name</label>
+      <input formControlName="name" type="text" id="name" name="name" placeholder="banana" required>
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <input formControlName="description" type="text" id="description" name="description" required>
+    </div>
+    <div>
+      <label for="price">Price</label>
+      <input formControlName="price" type="number" id="price" name="price" placeholder="$100.00" required>
+    </div>
+    <div>
+      <label for="quantity">Quantity</label>
+      <input formControlName="quantity" type="number" id="quantity" name="quantity" required>
+    </div>
+    @if(editMode){
+      <button (click)="editItem()" type="submit">Edit</button>
+    } @else {
+      <button (click)="addItem()" type="submit">Add</button>}
+  </form>
+</div>
