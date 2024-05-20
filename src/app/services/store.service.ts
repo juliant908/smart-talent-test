@@ -26,7 +26,6 @@ export class StoreService {
     const index = items.findIndex(i => i.id === product.id)
     items[index] = product
     this.storeItems.set(items)
-    this.fetchProducts()
   }
 
   addItem(product: Product) {
