@@ -4,10 +4,10 @@ Prueba de smart talent para desarrollador angular
 
 ## Conceptos usados
 
-- RXJS
+- RXJS (Observables, BehviorSubjects, Operadores de RXJS)
 - Signals
 - Auth Guards
-- Conceptos de Angular 17
+- Conceptos de Angular 17 (@if/@else/@for/signals)
 - Lazy loading de componentes
 - Manipulación de Local Storage
 
@@ -39,3 +39,7 @@ Para iniciar el proyecto ejecute `````ng serve````
 - Singleton
 - Observer
 - Depedency Injection
+
+## Observaciones
+
+En un escenario ideal la data la enviaríamos y recibiríamos a través de HTTP requests con el HTTPClient de angular (en el angular 17 a través del provideHttpClient() en el appConfig)
