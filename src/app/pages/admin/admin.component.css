@@ -33,9 +33,10 @@ form {
 
 .goBack {
   margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   justify-self: self-start;
-  background: rgba(33, 49, 69);
-  padding: 1rem;
-  border-radius: 5px;
   cursor: pointer;
+  font-weight: bold;
 }

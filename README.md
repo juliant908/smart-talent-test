@@ -1,27 +1,41 @@
 # SmartTalentTest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+Prueba de smart talent para desarrollador angular
 
-## Development server
+## Conceptos usados
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- RXJS
+- Signals
+- Auth Guards
+- Conceptos de Angular 17
+- Lazy loading de componentes
+- Manipulación de Local Storage
 
-## Code scaffolding
+## Credenciales 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Administrador
 
-## Build
+user: smart@email.com
+password: admin123
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Usuario
 
-## Running unit tests
+user: arnold123@email.com
+password: arnold123
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Setup
 
-## Running end-to-end tests
+Para iniciar el proyecto ejecute `````ng serve````
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Con la aplicación podrás
 
-## Further help
+- Añadir, eliminar y modificar productos como administrador
+- Ver los pedidos realizados por los usuarios como administrador
+- Registrar usuarios
+- Realizar pedidos como usuario
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Patrones de diseño implementados
+
+- Singleton
+- Observer
+- Depedency Injection

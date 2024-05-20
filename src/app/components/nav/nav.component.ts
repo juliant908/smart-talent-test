@@ -17,7 +17,7 @@ export class NavComponent {
   user!: BehaviorSubject<User | null>;
 
   ngOnInit() {
-    this.user = this.loginService.currentUser$;
+    this.user = this.loginService.user$;
   }
 
   logout() {

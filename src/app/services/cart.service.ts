@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, map, of, take, tap } from 'rxjs';
+import { BehaviorSubject, map, take} from 'rxjs';
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
+
 
 @Injectable({
   providedIn: 'root'
@@ -63,6 +66,7 @@ export class CartService {
       total: this._total.value
     }
     const localOrders = JSON.parse(localStorage.getItem('orders') || '[]');
+    this.successToast('Order placed successfully')
     localOrders.push(totalOrder);
     localStorage.setItem('orders', JSON.stringify(localOrders));
     this._cart.next([]);
@@ -71,6 +75,18 @@ export class CartService {
 
   cleanOrder(order: CartItem[]){
     return order.filter(item => item.quantity > 0);
+  }
+
+  successToast = (message: string) => {
+    Toastify({
+      text: message,
+      duration: 3000,
+      close: true,
+      gravity: 'top',
+      position: 'center',
+      backgroundColor: 'green',
+      stopOnFocus: true,
+    }).showToast();
   }
 }
 

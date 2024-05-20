@@ -4,7 +4,7 @@ import { LoginService } from "../services/login.service";
 
 export const authGuard: CanActivateFn = () => {
   const loginService = inject(LoginService);
-  const user = loginService.currentUser$.value === null ? false : true;
+  const user = loginService.user$.value === null ? false : true;
   if(!user) {
     inject(Router).navigate(['/login']);
     return false;
@@ -13,3 +13,13 @@ export const authGuard: CanActivateFn = () => {
   }
 }
 
+export const loginGuard: CanActivateFn = () => {
+  const loginService = inject(LoginService);
+  const user = loginService.user$.value !== null ? true : false;
+  if(user) {
+    inject(Router).navigate(['/shop']);
+    return false;
+  } else {
+    return true;
+  }
+}

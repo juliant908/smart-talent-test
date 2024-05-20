@@ -5,6 +5,11 @@
 }
 
 .add-btn {
-  margin-top: 1rem;
-  width: 100%;
+  margin-bottom: 1rem;
+  margin-inline-end: 0;
+}
+
+.add-btn-container {
+  display: flex;
+  justify-content: end;
 }

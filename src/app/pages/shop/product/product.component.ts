@@ -16,13 +16,17 @@ export class ProductComponent {
   storeService = inject(StoreService);
   cartService = inject(CartService);
   router = inject(Router);
-  user: User | null = this.loginService.currentUser$.value;;
+  user: User | null = this.loginService.user$.value;;
   @Input({ required: true }) item!: Product;
 
   editItem(item: Product) {
     this.storeService.setItem(item);
     this.storeService.editMode.set(true);
     this.router.navigate(['/admin']);
+  }
+
+  deleteItem(item: Product) {
+    this.storeService.deleteItem(item);
   }
 
   addToCart(item: Product) {

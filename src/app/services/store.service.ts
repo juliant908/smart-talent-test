@@ -30,6 +30,10 @@ export class StoreService {
   }
 
   addItem(product: Product) {
-    this.storeItems.set([...this.storeItems(), product])
+    this.storeItems.update((items: Product[]) => items.concat(product))
+  }
+
+  deleteItem(product: Product) {
+    this.storeItems.update((items: Product[]) => items.filter(i => i.id !== product.id))
   }
 }

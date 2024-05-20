@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { products } from '../../utils/store';
+import { Component, inject, signal } from '@angular/core';
 import { ProductComponent } from './product/product.component';
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
@@ -17,9 +16,8 @@ export class ShopComponent {
   loginService = inject(LoginService);
   storeService = inject(StoreService);
   router = inject(Router);
-  items = this.storeService.storeItems();
 
-  user = this.loginService.currentUser$.value;
+  user = this.loginService.user$.value;
 
   addItem() {
     this.storeService.editMode.set(false);

@@ -10,10 +10,10 @@ export class LoginService {
 
   userExists = true;
   emailExists = false;
-  currentUser$ = new BehaviorSubject<User | null>(null)
+  user$ = new BehaviorSubject<User | null>(localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!) : null);
   users = signal<User[]>([])
   router = inject(Router);
-  constructor() { }
+  constructor() {}
 
   loadUsers() {
     this.users.set(users)
@@ -21,11 +21,15 @@ export class LoginService {
 
   checkUser(credentials: Credentials) {
     const user = this.users().find(u => u.email === credentials.email && u.password === credentials.password)
-    if(user) this.currentUser$.next(user)
+    if(user) {
+      localStorage.setItem('user', JSON.stringify(user))
+      this.user$.next(user)
+    }
     return user
   }
 
   login(credentials: Credentials) {
+    this.userExists = false;
     this.loadUsers();
     const userExists = this.checkUser(credentials)
     if(userExists){
@@ -46,7 +50,8 @@ export class LoginService {
   }
 
   logout() {
-    this.currentUser$.next(null);
+    localStorage.removeItem('user');
+    this.user$.next(null);
     this.router.navigate(['/login']);
   }
 }

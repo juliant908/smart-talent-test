@@ -1,7 +1,15 @@
-<div class="goBack" (click)="router.navigate(['/shop']);">
-  Go back
-</div>
 <div class="edit-form add-form">
+  <div class="goBack" (click)="router.navigate(['/shop']);">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-left">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M5 12l14 0" />
+      <path d="M5 12l6 6" />
+      <path d="M5 12l6 -6" />
+    </svg>
+    Go back
+  </div>
   <h1>{{editMode ? 'Edit' : 'Add'}} product</h1>
   <form [formGroup]="addEditForm">
     <div>
@@ -13,16 +21,16 @@
       <input formControlName="description" type="text" id="description" name="description" required>
     </div>
     <div>
-      <label for="price">Price</label>
-      <input formControlName="price" type="number" id="price" name="price" placeholder="$100.00" required>
+      <label for="price">Price ($)</label>
+      <input formControlName="price" min="0" type="number" id="price" name="price" placeholder="$100.00" required>
     </div>
     <div>
       <label for="quantity">Quantity</label>
-      <input formControlName="quantity" type="number" id="quantity" name="quantity" required>
+      <input formControlName="quantity" min="0" type="number" id="quantity" name="quantity" required>
     </div>
     @if(editMode){
-      <button (click)="editItem()" type="submit">Edit</button>
+      <button [disabled]="addEditForm.invalid" (click)="handleItem(true)" type="submit">Edit</button>
     } @else {
-      <button (click)="addItem()" type="submit">Add</button>}
+      <button [disabled]="addEditForm.invalid" (click)="handleItem(false)" type="submit">Add</button>}
   </form>
 </div>
