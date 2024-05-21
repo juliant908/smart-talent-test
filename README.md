@@ -20,7 +20,7 @@ password: admin123
 
 ### Usuario
 
-user: arnold123@email.com
+user: arnold@email.com
 password: arnold123
 
 ## Setup
