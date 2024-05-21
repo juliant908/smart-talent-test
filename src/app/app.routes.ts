@@ -40,11 +40,11 @@ export const routes: Routes = [
     canActivate: [authGuard]
   },
   {
-    path: '**',
-    component: NotFoundComponent
+    path: 'test',
+    component: ShopComponent
   },
   {
-    path: '/test',
-    component: ShopComponent
+    path: '**',
+    component: NotFoundComponent
   },
 ];
