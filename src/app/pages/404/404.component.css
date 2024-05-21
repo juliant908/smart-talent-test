@@ -1,0 +1,10 @@
+.not-found {
+  display: grid;
+  place-items: center;
+  height: 50dvh;
+}
+
+.not-found p {
+  font-size: 2rem;
+  font-weight: bold;
+}
